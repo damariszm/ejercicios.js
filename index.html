@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De PSeInt a JS</title>
+  <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="navbar">
+      <h2 class="logo">JS</h2>
+      <ul>
+        <li>
+          <a href="#">Home</a>
+        </li>
+        <li>
+          <a href="html/ejercicio1.html">Ejercicios</a>
+        </li>
+      </ul>
+    </div>
+    <div class="content">
+      <div class="left-col">
+        <h1><span>Fr</span>om <br> P<span>Se</span>Int <br> to <span>JS</span></h1>
+      </div>
+      <div class="right-col">
+        <p><span>Cl</span>ick <span>He</span>re <span></span> <span>To</span>Listen</p>
+        <img src="/assets/play.png" id="icon">
+      </div>
+    </div>
+  </div>
+
+  <audio id="mySong">
+    <source src="/assets/song.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    var mySong = document.getElementById('mySong');
+    var icon = document.getElementById('icon');
+
+    icon.onclick = function () {
+      if (mySong.paused) {
+        mySong.play();
+        icon.src = "/assets/pause.png"
+      } else {
+        mySong.pause();
+        icon.src = "/assets/play.png"
+      }
+    }
+    //Para que hable la pc
+    let parlar =
+      "Buenos días, tardes o noches, mi nombre es Cami, soy su asistente virtual y lo guiare a traves de esta aplicación web. dato curioso si aplasta al botón de play se escuchara una linda canción";
+    const hablar = (parlar) =>
+      speechSynthesis.speak(new SpeechSynthesisUtterance(parlar));
+    hablar(parlar);
+  </script>
+</body>
+
+</html>
